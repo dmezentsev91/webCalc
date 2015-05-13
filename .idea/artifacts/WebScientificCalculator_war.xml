@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="WebScientificCalculator:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="Artifact1.1-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="WebScientificCalculator:war exploded" />
+    </root>
+  </artifact>
+</component>
