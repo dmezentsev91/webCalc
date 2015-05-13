@@ -95,7 +95,9 @@
     }
     function backSpace() {
         var str = document.getElementById('expression').value;
-        document.getElementById('expression').value = str.substring(0, str.length - 1);
+        var carPos = getCaretPosition(document.getElementById('expression'));
+        document.getElementById('expression').value = str.substring(0, carPos - 1) + str.substring(carPos, str.length);
+        setCaretPosition("expression",carPos - 1);
     }
     function ccclear() {
 
