@@ -6,7 +6,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 public class TestLogicWebProgram {
     String strTest1 = "2^3!";
-    String strTest2 = "Sin(Pi/6)";
+    String strTest2 = "0!";
 
 
     LogicWebProgram logicWebProgram;
@@ -21,7 +21,7 @@ public class TestLogicWebProgram {
     }
     @Test
     public void testMain2() throws Exception {
-        assertEquals("0.5",logicWebProgram.mainMethod(strTest2));
+        assertEquals("0",logicWebProgram.mainMethod(strTest2));
     }
 
 

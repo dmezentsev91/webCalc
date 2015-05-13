@@ -23,6 +23,7 @@ public class CalculationExpression {
         return Math.sqrt(a);
     }
     public static double factor(double a) {
+        if  (a==0) return 0;
         if (a == 1) return 1;
         return a*factor(a - 1);
     }

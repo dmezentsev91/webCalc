@@ -61,7 +61,7 @@
             <input type="button" name="button2" id="button2" value="2" onClick="addSymbol('2')">
             <input type="button" name="button3" id="button3" value="3" onClick="addSymbol('3')">
             <input type="button" name="button16" id="button16" value="*" onClick="addSymbol('*')">
-            <input type="button" name="button24" id="button24" value="^n" onClick="addSymbol('^n')">
+            <input type="button" name="button24" id="button24" value="^n" onClick="addSymbol('^')">
             <input type="button" name="button25" id="button25" value="tan()" onClick="addSymbol('tan()')">
             <input type="button" name="button26" id="button26" value="(" onClick="addSymbol('(')">
         </form>

@@ -1,6 +1,8 @@
 package WebCalc1;
 
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.*;
 
 
@@ -50,12 +52,13 @@ public class LogicWebProgram {
         if ((resultD - (int) resultD) == 0)
             result = Integer.toString((int) resultD);
         else
-            result = Double.toString(resultD);
+            result = Double.toString(round(10, resultD));
         return result;
     }
 
-    public String liteCorrecting(String arg) {
-        return arg.replaceAll(" ", "").replaceAll("/,", ".").toLowerCase();
+    private double round(int n, double number) {
+        double newDouble = new BigDecimal(number).setScale(n, RoundingMode.UP).doubleValue();
+            return newDouble;
     }
 
     public String nullExpression(String arg) {
@@ -67,7 +70,11 @@ public class LogicWebProgram {
         }
     }
 
-    protected ArrayList<String> divFunctAndNumb(String arg) {
+    private String liteCorrecting(String arg) {
+        return arg.replaceAll(" ", "").replaceAll("/,", ".").toLowerCase();
+    }
+
+    private ArrayList<String> divFunctAndNumb(String arg) {
         ArrayList<String> listF = new ArrayList<String>();
         String buff = "";
         char[] chars = arg.toCharArray();
@@ -75,14 +82,14 @@ public class LogicWebProgram {
             try {
                 if (chars[i] == 'p' && chars[i + 1] == 'i') {
                     listF.add(Double.toString(Math.PI));
-                    i ++;
+                    i++;
                     continue;
 
                 }
             } catch (IndexOutOfBoundsException e) {
 
             }
-             if (chars[i] == 'e') {
+            if (chars[i] == 'e') {
                 listF.add(Double.toString(Math.E));
                 continue;
 
@@ -90,7 +97,7 @@ public class LogicWebProgram {
                 buff = searchNumber(i, chars);
                 if (i != chars.length - 1)
                     i += buff.length() - 1;
-                 listF.add(buff);
+                listF.add(buff);
                 continue;
 
             } else {
@@ -105,7 +112,7 @@ public class LogicWebProgram {
         return listF;
     }
 
-    protected String searchFunction(int n, String str) {
+    private String searchFunction(int n, String str) {
         for (Map.Entry<String, Integer> pair : priorityFunction.entrySet()) {
             try {
                 String maybeFunct = str.substring(n, n + pair.getKey().length());
@@ -117,7 +124,7 @@ public class LogicWebProgram {
         return null;
     }
 
-    protected String searchNumber(int n, char[] chars) {
+    private String searchNumber(int n, char[] chars) {
         String buff = "";
         for (int i = n; i < chars.length; i++) {
             if ((chars[i] >= 48 && chars[i] <= 57) || chars[i] == '.') {
@@ -128,7 +135,7 @@ public class LogicWebProgram {
         return buff;
     }
 
-    protected void methodTransform(ArrayList<String> expressionList) {
+    private void methodTransform(ArrayList<String> expressionList) {
 
         String partExp;
         for (int i = 0; i < expressionList.size(); i++) {
@@ -145,7 +152,7 @@ public class LogicWebProgram {
         }
     }
 
-    public void rulsSelect(String arg, int priorityNewElement) {
+    private void rulsSelect(String arg, int priorityNewElement) {
         int priorityInStack;
         try {
             priorityInStack = priorityFunction.get(stack.peek());

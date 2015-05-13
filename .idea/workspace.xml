@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9aebd98c-33da-4013-8040-23bf7c569f1a" name="Default" comment="fix backspace">
-      <change type="DELETED" beforePath="D:\dev\projects\WebScientificCalculator\src\main\java\WebCalc1\ExpressionHasError.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\dev\projects\WebScientificCalculator\src\test\java\WebCalc1\ByPathServletTest.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/WebCalc1/CalculationExpression.java" afterPath="$PROJECT_DIR$/src/main/java/WebCalc1/CalculationExpression.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/WebCalc1/LogicWebProgram.java" afterPath="$PROJECT_DIR$/src/main/java/WebCalc1/LogicWebProgram.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/WebCalc1/TestLogicWebProgram.java" afterPath="$PROJECT_DIR$/src/test/java/WebCalc1/TestLogicWebProgram.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/mypage.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/mypage.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="WebScientificCalculator.iws" />
@@ -46,10 +46,13 @@
       <file leaf-file-name="TestLogicWebProgram.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/WebCalc1/TestLogicWebProgram.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="612">
-              <caret line="23" column="50" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="32" max-vertical-offset="510">
+              <caret line="22" column="45" selection-start-line="22" selection-start-column="45" selection-end-line="22" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#setUp#0;class#TestLogicWebProgram#0" expanded="false" />
+                <element signature="method#testMain#0;class#TestLogicWebProgram#0" expanded="false" />
+                <element signature="method#testMain2#0;class#TestLogicWebProgram#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -58,9 +61,11 @@
       <file leaf-file-name="CalculationExpression.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/WebCalc1/CalculationExpression.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="6" max-vertical-offset="510">
-              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
+              <caret line="24" column="42" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
+              <folding>
+                <element signature="method#factor#0;class#CalculationExpression#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -68,17 +73,27 @@
       <file leaf-file-name="LogicWebProgram.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/WebCalc1/LogicWebProgram.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="3604">
-              <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="1360">
+              <caret line="60" column="29" selection-start-line="60" selection-start-column="29" selection-end-line="60" selection-end-column="29" />
               <folding>
-                <element signature="e#153#170#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#213#230#0" expanded="true" />
                 <element signature="initializer##0;class#LogicWebProgram#0" expanded="false" />
-                <element signature="e#752#760#0" expanded="true" />
-                <element signature="e#799#807#0" expanded="true" />
-                <element signature="e#847#855#0" expanded="true" />
-                <element signature="e#1599#1600#0" expanded="true" />
-                <element signature="e#1681#1682#0" expanded="true" />
-                <element signature="e#1995#2003#0" expanded="true" />
+                <element signature="e#812#820#0" expanded="true" />
+                <element signature="e#859#867#0" expanded="true" />
+                <element signature="e#907#915#0" expanded="true" />
+                <element signature="method#nullExpression#0;class#LogicWebProgram#0" expanded="false" />
+                <element signature="method#divFunctAndNumb#0;class#LogicWebProgram#0" expanded="false" />
+                <element signature="e#2245#2253#0" expanded="true" />
+                <element signature="method#searchFunction#0;class#LogicWebProgram#0" expanded="false" />
+                <element signature="method#searchNumber#0;class#LogicWebProgram#0" expanded="false" />
+                <element signature="method#methodTransform#0;class#LogicWebProgram#0" expanded="false" />
+                <element signature="method#rulsSelect#0;class#LogicWebProgram#0" expanded="false" />
+                <element signature="method#isNumber#0;class#LogicWebProgram#0" expanded="false" />
+                <element signature="method#CalculateResult#0;class#LogicWebProgram#0" expanded="false" />
+                <element signature="method#doFunction#0;class#LogicWebProgram#0" expanded="false" />
+                <element signature="method#bynaryFunct#0;class#LogicWebProgram#0" expanded="false" />
+                <element signature="method#unaryFunct#0;class#LogicWebProgram#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -87,8 +102,8 @@
       <file leaf-file-name="mypage.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/mypage.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33333334" vertical-offset="1377" max-vertical-offset="2533">
-              <caret line="88" column="12" selection-start-line="88" selection-start-column="12" selection-end-line="88" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.25692695" vertical-offset="816" max-vertical-offset="2533">
+              <caret line="54" column="100" selection-start-line="54" selection-start-column="100" selection-end-line="54" selection-end-column="100" />
               <folding />
             </state>
           </provider>
@@ -104,8 +119,9 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/../ExampleServlet5/src/test/java/Gr5/TestLogicWebProgram.java" />
-        <option value="$PROJECT_DIR$/src/main/java/WebCalc1/LogicWebProgram.java" />
         <option value="$PROJECT_DIR$/src/test/java/WebCalc1/TestLogicWebProgram.java" />
+        <option value="$PROJECT_DIR$/src/main/java/WebCalc1/CalculationExpression.java" />
+        <option value="$PROJECT_DIR$/src/main/java/WebCalc1/LogicWebProgram.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/mypage.jsp" />
       </list>
     </option>
@@ -860,21 +876,28 @@
       <created>1431507051840</created>
       <option name="number" value="Default" />
       <updated>1431507051840</updated>
-      <workItem from="1431507054757" duration="10048000" />
+      <workItem from="1431507054757" duration="14306000" />
     </task>
+    <task id="LOCAL-00001" summary="fix backspace">
+      <created>1431518274242</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1431518274242</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10048000" />
+    <option name="totallyTimeSpent" value="14306000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32952693" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -883,10 +906,10 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39967373" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26427406" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24962178" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21633889" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -922,7 +945,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="5" />
+      <option name="time" value="7" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -963,45 +986,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/WebCalc1/TestLogicWebProgram.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/WebCalc1/CalculationExpression.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="612">
-          <caret line="23" column="50" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
+          <caret line="24" column="42" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="method#factor#0;class#CalculationExpression#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/WebCalc1/CalculationExpression.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/WebCalc1/TestLogicWebProgram.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="6" max-vertical-offset="510">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="32" max-vertical-offset="510">
+          <caret line="22" column="45" selection-start-line="22" selection-start-column="45" selection-end-line="22" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#setUp#0;class#TestLogicWebProgram#0" expanded="false" />
+            <element signature="method#testMain#0;class#TestLogicWebProgram#0" expanded="false" />
+            <element signature="method#testMain2#0;class#TestLogicWebProgram#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/WebCalc1/LogicWebProgram.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="3604">
-          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="1360">
+          <caret line="60" column="29" selection-start-line="60" selection-start-column="29" selection-end-line="60" selection-end-column="29" />
           <folding>
-            <element signature="e#153#170#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#213#230#0" expanded="true" />
             <element signature="initializer##0;class#LogicWebProgram#0" expanded="false" />
-            <element signature="e#752#760#0" expanded="true" />
-            <element signature="e#799#807#0" expanded="true" />
-            <element signature="e#847#855#0" expanded="true" />
-            <element signature="e#1599#1600#0" expanded="true" />
-            <element signature="e#1681#1682#0" expanded="true" />
-            <element signature="e#1995#2003#0" expanded="true" />
+            <element signature="e#812#820#0" expanded="true" />
+            <element signature="e#859#867#0" expanded="true" />
+            <element signature="e#907#915#0" expanded="true" />
+            <element signature="method#nullExpression#0;class#LogicWebProgram#0" expanded="false" />
+            <element signature="method#divFunctAndNumb#0;class#LogicWebProgram#0" expanded="false" />
+            <element signature="e#2245#2253#0" expanded="true" />
+            <element signature="method#searchFunction#0;class#LogicWebProgram#0" expanded="false" />
+            <element signature="method#searchNumber#0;class#LogicWebProgram#0" expanded="false" />
+            <element signature="method#methodTransform#0;class#LogicWebProgram#0" expanded="false" />
+            <element signature="method#rulsSelect#0;class#LogicWebProgram#0" expanded="false" />
+            <element signature="method#isNumber#0;class#LogicWebProgram#0" expanded="false" />
+            <element signature="method#CalculateResult#0;class#LogicWebProgram#0" expanded="false" />
+            <element signature="method#doFunction#0;class#LogicWebProgram#0" expanded="false" />
+            <element signature="method#bynaryFunct#0;class#LogicWebProgram#0" expanded="false" />
+            <element signature="method#unaryFunct#0;class#LogicWebProgram#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/mypage.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334" vertical-offset="1377" max-vertical-offset="2533">
-          <caret line="88" column="12" selection-start-line="88" selection-start-column="12" selection-end-line="88" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.25692695" vertical-offset="816" max-vertical-offset="2533">
+          <caret line="54" column="100" selection-start-line="54" selection-start-column="100" selection-end-line="54" selection-end-column="100" />
           <folding />
         </state>
       </provider>
