@@ -6,6 +6,7 @@ import java.util.*;
 
 public class LogicWebProgram {
     private static final HashMap<String, Integer> priorityFunction = new HashMap<String, Integer>();
+
     static {
         priorityFunction.put("sin(", 0);
         priorityFunction.put("cos(", 0);
@@ -19,7 +20,7 @@ public class LogicWebProgram {
         priorityFunction.put("*", 2);
         priorityFunction.put("/", 2);
         priorityFunction.put("^", 3);
-        priorityFunction.put("!", 3);
+        priorityFunction.put("!", 4);
     }
 
 
@@ -27,15 +28,16 @@ public class LogicWebProgram {
     Stack<String> stack = new Stack<String>();
     Stack<Double> stackD = new Stack<Double>();
 
-    ArrayList<String> firstListFunct ;
+    ArrayList<String> firstListFunct;
 
 
-   // public static HashMap<String, Integer> getPriorityFunction() {
+    // public static HashMap<String, Integer> getPriorityFunction() {
 //        return priorityFunction;
 //    }
 
     public String mainMethod(String arg) {
         String result;
+        double resultD;
         try {
             firstListFunct = divFunctAndNumb(liteCorrecting(arg));
         } catch (Exception e) {
@@ -44,8 +46,11 @@ public class LogicWebProgram {
         }
         methodTransform(firstListFunct);
 
-
-        result = Double.toString(CalculateResult());
+        resultD = CalculateResult();
+        if ((resultD - (int) resultD) == 0)
+            result = Integer.toString((int) resultD);
+        else
+            result = Double.toString(resultD);
         return result;
     }
 
@@ -67,27 +72,45 @@ public class LogicWebProgram {
         String buff = "";
         char[] chars = arg.toCharArray();
         for (int i = 0; i < chars.length; i++) {
-           if( chars[i]>=48 && chars[i] <=57 ) {
-              buff= searchNumber(i, chars);
-               if (i!= chars.length-1)
-               i+=buff.length()-1;
+            try {
+                if (chars[i] == 'p' && chars[i + 1] == 'i') {
+                    listF.add(Double.toString(Math.PI));
+                    i ++;
+                    continue;
 
-           } else {
-               buff = searchFunction(i, arg);
-               i+=buff.length()-1;
-           }
-            listF.add(buff);
+                }
+            } catch (IndexOutOfBoundsException e) {
+
+            }
+             if (chars[i] == 'e') {
+                listF.add(Double.toString(Math.E));
+                continue;
+
+            } else if (chars[i] >= 48 && chars[i] <= 57) {
+                buff = searchNumber(i, chars);
+                if (i != chars.length - 1)
+                    i += buff.length() - 1;
+                 listF.add(buff);
+                continue;
+
+            } else {
+                buff = searchFunction(i, arg);
+                if (buff != null)
+                    i += buff.length() - 1;
+            }
+            if (buff != null)
+                listF.add(buff);
         }
 
         return listF;
     }
 
     protected String searchFunction(int n, String str) {
-        for (Map.Entry<String,Integer> pair : priorityFunction.entrySet()){
+        for (Map.Entry<String, Integer> pair : priorityFunction.entrySet()) {
             try {
                 String maybeFunct = str.substring(n, n + pair.getKey().length());
                 if (maybeFunct.equals(pair.getKey())) return maybeFunct;
-            } catch ( StringIndexOutOfBoundsException e){
+            } catch (StringIndexOutOfBoundsException e) {
                 continue;
             }
         }
@@ -95,13 +118,12 @@ public class LogicWebProgram {
     }
 
     protected String searchNumber(int n, char[] chars) {
-        String buff  = "";
+        String buff = "";
         for (int i = n; i < chars.length; i++) {
-            if((chars[i]>=48 && chars[i] <=57)||chars[i] == '.' ){
-                buff +=Character.toString(chars[i]);
+            if ((chars[i] >= 48 && chars[i] <= 57) || chars[i] == '.') {
+                buff += Character.toString(chars[i]);
                 continue;
-            }
-            else return buff; //doit case with two point and more
+            } else return buff; //doit case with two point and more
         }
         return buff;
     }
@@ -118,7 +140,7 @@ public class LogicWebProgram {
                 rulsSelect(partExp, a);
             }
         }
-        while(!stack.empty()){
+        while (!stack.empty()) {
             postExp.add(stack.pop());
         }
     }
@@ -132,27 +154,27 @@ public class LogicWebProgram {
             return;
         }
 
-            if (arg.equals(")")) {
-                while (priorityInStack != 0) {
-                    postExp.add(stack.pop());
-                    priorityInStack = priorityFunction.get(stack.peek());
-                }
-                if (!stack.peek().equals("(")) postExp.add(stack.pop());
-                else stack.pop();
-            } else if (stack.isEmpty() || (priorityNewElement == 0))
-                stack.push(arg);
-            else if (priorityInStack < priorityNewElement)
-                stack.add(arg);
-            else if (priorityNewElement <= priorityInStack) {
+        if (arg.equals(")")) {
+            while (priorityInStack != 0) {
                 postExp.add(stack.pop());
-                rulsSelect(arg, priorityNewElement);
+                priorityInStack = priorityFunction.get(stack.peek());
             }
+            if (!stack.peek().equals("(")) postExp.add(stack.pop());
+            else stack.pop();
+        } else if (stack.isEmpty() || (priorityNewElement == 0))
+            stack.push(arg);
+        else if (priorityInStack < priorityNewElement)
+            stack.add(arg);
+        else if (priorityNewElement <= priorityInStack) {
+            postExp.add(stack.pop());
+            rulsSelect(arg, priorityNewElement);
+        }
 
-}
+    }
 
     private boolean isNumber(String s) {
         try {
-            double d = Double.parseDouble(s);
+            Double.parseDouble(s);
             return true;
         } catch (Exception e) {
             return false;
@@ -160,7 +182,7 @@ public class LogicWebProgram {
     }
 
     private double CalculateResult() {
-        String str ;
+        String str;
         for (int i = 0; i < postExp.size(); i++) {
             str = postExp.get(i);
             if (isNumber(str)) stackD.push(Double.parseDouble(postExp.get(i)));
