@@ -23,6 +23,11 @@ public class TestLogicWebProgram {
     public void testMain2() throws Exception {
         assertEquals("0",logicWebProgram.mainMethod(strTest2));
     }
+    @Test
+    public void testMain3() throws Exception {
+        assertEquals("errr",logicWebProgram.mainMethod("0.5!"));
+    }
+
 
 
 

@@ -19,17 +19,17 @@
 
         <form id="form6" name="form6" method="GET" action="mypage.jsp">
 
-            <input style="width : 338pt" value="<%=calculator.nullExpression(request.getParameter("expression"))%>"
+            <input style="width : 420pt" value="<%=calculator.nullExpression(request.getParameter("expression"))%>"
                    name="expression" type="text" id="expression" placeholder="put expression"
                    autofocus>
 
             <input type="button" name="button" id="button" value="BackSpace" onClick="backSpace()">
             <input type="button" name="button13" id="button13" value="Clear" onClick="ccclear()">
 
-            <input style="width : 338pt " type="text" name="textfield" id="textfield"
+            <input style="width : 420pt " type="text" name="textfield" id="textfield"
                    value="<%=calculator.mainMethod(request.getParameter("expression"))%>" placeholder="result">
 
-            <input style="width:166pt" name="button12" type="submit" id="button12" value="=">
+            <input style="width:136pt" name="button12" type="submit" id="button12" value="=">
         </form>
 
 
@@ -45,6 +45,7 @@
             <input type="button" name="button15" id="button15" value="+" onClick="addSymbol('+')">
             <input type="button" name="button18" id="button18" value="sqrt()" onClick="addSymbol('sqrt()')">
             <input type="button" name="button19" id="button19" value="sin()" onClick="addSymbol('sin()')">
+            <input type="button" name="button30" id="button30" value="aSin()" onClick="addSymbol('aSin()')">
             <input type="button" name="button20" id="button20" value="Pi" onClick="addSymbol('Pi')">
         </form>
         <form id="form3" name="form3" method="post">
@@ -54,6 +55,7 @@
             <input type="button" name="button14" id="button14" value="-" onClick="addSymbol('-')">
             <input type="button" name="button21" id="button21" value="^2" onClick="addSymbol('^2')">
             <input type="button" name="button22" id="button22" value="cos()" onClick="addSymbol('cos()')">
+            <input type="button" name="button31" id="button31" value="aCos()" onClick="addSymbol('aCos()')">
             <input type="button" name="button23" id="button23" value="e" onClick="addSymbol('e')">
         </form>
         <form id="form4" name="form4" method="post">
@@ -63,6 +65,7 @@
             <input type="button" name="button16" id="button16" value="*" onClick="addSymbol('*')">
             <input type="button" name="button24" id="button24" value="^n" onClick="addSymbol('^')">
             <input type="button" name="button25" id="button25" value="tan()" onClick="addSymbol('tan()')">
+            <input type="button" name="button32" id="button32" value="ln()" onClick="addSymbol('ln()')">
             <input type="button" name="button26" id="button26" value="(" onClick="addSymbol('(')">
         </form>
         <form id="form5" name="form5" method="post">
@@ -72,6 +75,7 @@
             <input type="button" name="button17" id="button17" value="/" onClick="addSymbol('/')">
             <input type="button" name="button27" id="button27" value="n!" onClick="addSymbol('!')">
             <input type="button" name="button28" id="button28" value="ctan()" onClick="addSymbol('ctan()')">
+            <input type="button" name="button33" id="button33" value="lg()"onClick="addSymbol('lg()')">
             <input type="button" name="button29" id="button29" value=")" onClick="addSymbol(')')">
         </form>
     </fieldset>
@@ -97,7 +101,7 @@
         var str = document.getElementById('expression').value;
         var carPos = getCaretPosition(document.getElementById('expression'));
         document.getElementById('expression').value = str.substring(0, carPos - 1) + str.substring(carPos, str.length);
-        setCaretPosition("expression",carPos - 1);
+        setCaretPosition("expression", carPos - 1);
     }
     function ccclear() {
 

@@ -15,6 +15,10 @@ public class LogicWebProgram {
         priorityFunction.put("tan(", 0);
         priorityFunction.put("ctan(", 0);
         priorityFunction.put("sqrt(", 0);
+        priorityFunction.put("asin(", 0);
+        priorityFunction.put("acos(", 0);
+        priorityFunction.put("ln(", 0);
+        priorityFunction.put("lg(", 0);
         priorityFunction.put("(", 0);
         priorityFunction.put(")", 0);
         priorityFunction.put("+", 1);
@@ -37,15 +41,12 @@ public class LogicWebProgram {
 //        return priorityFunction;
 //    }
 
-    public String mainMethod(String arg) {
+    public String mainMethod(String arg) throws Exception {
         String result;
         double resultD;
         try {
             firstListFunct = divFunctAndNumb(liteCorrecting(arg));
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "errr";
-        }
+
         methodTransform(firstListFunct);
 
         resultD = CalculateResult();
@@ -54,11 +55,16 @@ public class LogicWebProgram {
         else
             result = Double.toString(round(10, resultD));
         return result;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "errr";
+        }
+
     }
 
     private double round(int n, double number) {
         double newDouble = new BigDecimal(number).setScale(n, RoundingMode.UP).doubleValue();
-            return newDouble;
+        return newDouble;
     }
 
     public String nullExpression(String arg) {
@@ -74,7 +80,7 @@ public class LogicWebProgram {
         return arg.replaceAll(" ", "").replaceAll("/,", ".").toLowerCase();
     }
 
-    private ArrayList<String> divFunctAndNumb(String arg) {
+    private ArrayList<String> divFunctAndNumb(String arg) throws Exception {
         ArrayList<String> listF = new ArrayList<String>();
         String buff = "";
         char[] chars = arg.toCharArray();
@@ -124,13 +130,14 @@ public class LogicWebProgram {
         return null;
     }
 
-    private String searchNumber(int n, char[] chars) {
+    private String searchNumber(int n, char[] chars) throws Exception {
         String buff = "";
         for (int i = n; i < chars.length; i++) {
             if ((chars[i] >= 48 && chars[i] <= 57) || chars[i] == '.') {
                 buff += Character.toString(chars[i]);
                 continue;
-            } else return buff; //doit case with two point and more
+            }if(buff.indexOf('.') != buff.lastIndexOf('.')) throw new Exception();
+            else return buff; //doit case with two point and more
         }
         return buff;
     }
@@ -160,7 +167,6 @@ public class LogicWebProgram {
             stack.push(arg);
             return;
         }
-
         if (arg.equals(")")) {
             while (priorityInStack != 0) {
                 postExp.add(stack.pop());
@@ -188,7 +194,7 @@ public class LogicWebProgram {
         }
     }
 
-    private double CalculateResult() {
+    private double CalculateResult() throws Exception {
         String str;
         for (int i = 0; i < postExp.size(); i++) {
             str = postExp.get(i);
@@ -198,7 +204,7 @@ public class LogicWebProgram {
         return stackD.pop();
     }
 
-    private void doFunction(String str) {
+    private void doFunction(String str) throws Exception {
         int priorityFunct = priorityFunction.get(str);
         if (priorityFunct == 0 || str.equals("!")) unaryFunct(str);
         else bynaryFunct(str);
@@ -214,14 +220,15 @@ public class LogicWebProgram {
         if (str.equals("^")) stackD.push(CalculationExpression.pow(lowerElem, upperElem));
     }
 
-    private void unaryFunct(String str) {
+    private void unaryFunct(String str) throws Exception {
         if (str.equals("sin(")) stackD.push(CalculationExpression.sin(stackD.pop()));
         else if (str.equals("cos(")) stackD.push(CalculationExpression.cos(stackD.pop()));
         else if (str.equals("tan(")) stackD.push(CalculationExpression.tan(stackD.pop()));
         else if (str.equals("ctan(")) stackD.push(CalculationExpression.ctan(stackD.pop()));
         else if (str.equals("sqrt(")) stackD.push(CalculationExpression.sqrt(stackD.pop()));
+        else if (str.equals("asin(")) stackD.push(CalculationExpression.aSin(stackD.pop()));
+        else if (str.equals("acos(")) stackD.push(CalculationExpression.aCos(stackD.pop()));
+        else if (str.equals("ln(")) stackD.push(CalculationExpression.ln(stackD.pop()));
         else if (str.equals("!")) stackD.push(CalculationExpression.factor(stackD.pop()));
-
     }
-
 }

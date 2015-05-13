@@ -22,7 +22,20 @@ public class CalculationExpression {
     public static double sqrt(double a) {
         return Math.sqrt(a);
     }
-    public static double factor(double a) {
+    public static double aSin(double a) {
+        return Math.asin(a);
+    }
+    public static double aCos(double a) {
+        return Math.acos(a);
+    }
+    public static double ln(double a) {
+        return Math.log(a);
+    }
+    public static double lg(double a) {
+        return Math.log10(a);
+    }
+    public static double factor(double a) throws Exception {
+        if  (a%1 != 0) throw new Exception();
         if  (a==0) return 0;
         if (a == 1) return 1;
         return a*factor(a - 1);
