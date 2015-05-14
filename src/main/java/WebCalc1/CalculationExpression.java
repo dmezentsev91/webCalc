@@ -30,14 +30,14 @@ public class CalculationExpression {
         return Math.sqrt(a);
     }
     public static double aSin(boolean rad, double a) {
-        if (rad = true)
+        if (rad == true)
         return Math.asin(a);
-        else return Math.asin(a)*180/Math.PI;
+        else return (Math.asin(a)*180/Math.PI);
     }
     public static double aCos(boolean rad, double a) {
-        if (rad = true)
+        if (rad == true)
             return Math.acos(a);
-        else return Math.acos(a)*180/Math.PI;
+        else return (Math.acos(a)*180/Math.PI);
     }
     public static double ln(double a) {
         return Math.log(a);

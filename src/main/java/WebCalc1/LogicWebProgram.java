@@ -59,7 +59,7 @@ public class LogicWebProgram {
             } else
                 rad = true;
 
-            firstListFunct = divFunctAndNumb(temp);
+            firstListFunct = separationFunctAndNumb(temp);
             methodTransform(firstListFunct);
             resultD = CalculateResult();
 
@@ -93,7 +93,7 @@ public class LogicWebProgram {
         return arg.replaceAll(" ", "").replaceAll("/,", ".").toLowerCase();
     }
 
-    private ArrayList<String> divFunctAndNumb(String arg) throws Exception {
+    private ArrayList<String> separationFunctAndNumb(String arg) throws Exception {
         ArrayList<String> listF = new ArrayList<String>();
         String buff = "";
         char[] chars = arg.toCharArray();
@@ -129,9 +129,10 @@ public class LogicWebProgram {
         }
 
         return listF;
-    }
+    } //separation line on the number and function
 
     private String searchFunction(int n, String str) {
+        // n - first symbol of function
         for (Map.Entry<String, Integer> pair : priorityFunction.entrySet()) {
             try {
                 String maybeFunct = str.substring(n, n + pair.getKey().length());
@@ -144,6 +145,7 @@ public class LogicWebProgram {
     }
 
     private String searchNumber(int n, char[] chars) throws Exception {
+        // n - first symbol of number
         String buff = "";
         for (int i = n; i < chars.length; i++) {
             if ((chars[i] >= 48 && chars[i] <= 57) || chars[i] == '.') {
@@ -151,7 +153,7 @@ public class LogicWebProgram {
                 continue;
             }
             if (buff.indexOf('.') != buff.lastIndexOf('.')) throw new Exception();
-            else return buff; //doit case with two point and more
+            else return buff;
         }
         return buff;
     }
@@ -171,7 +173,7 @@ public class LogicWebProgram {
         while (!stack.empty()) {
             postExp.add(stack.pop());
         }
-    }
+    } //Transform expressionList to postExp
 
     private void rulsSelect(String arg, int priorityNewElement) {
         int priorityInStack;
@@ -197,7 +199,7 @@ public class LogicWebProgram {
             rulsSelect(arg, priorityNewElement);
         }
 
-    }
+    } // https://ru.wikipedia.org/wiki/%D0%9E%D0%B1%D1%80%D0%B0%D1%82%D0%BD%D0%B0%D1%8F_%D0%BF%D0%BE%D0%BB%D1%8C%D1%81%D0%BA%D0%B0%D1%8F_%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D1%8C
 
     private boolean isNumber(String s) {
         try {
@@ -216,13 +218,13 @@ public class LogicWebProgram {
             else doFunction(str);
         }
         return stackD.pop();
-    }
+    } //
 
     private void doFunction(String str) throws Exception {
         int priorityFunct = priorityFunction.get(str);
         if (priorityFunct == 0 || str.equals("!")) unaryFunct(str);
         else bynaryFunct(str);
-    }
+    } // call metod bynaryFunct or unaryFunct
 
     private void bynaryFunct(String str) {
         double upperElem = stackD.pop();
@@ -243,6 +245,7 @@ public class LogicWebProgram {
         else if (str.equals("asin(")) stackD.push(CalculationExpression.aSin(rad, stackD.pop()));
         else if (str.equals("acos(")) stackD.push(CalculationExpression.aCos(rad, stackD.pop()));
         else if (str.equals("ln(")) stackD.push(CalculationExpression.ln(stackD.pop()));
+        else if (str.equals("lg(")) stackD.push(CalculationExpression.lg(stackD.pop()));
         else if (str.equals("!")) stackD.push(CalculationExpression.factor(stackD.pop()));
     }
 }

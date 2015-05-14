@@ -25,7 +25,7 @@ public class TestLogicWebProgram {
     }
     @Test
     public void testMain3() throws Exception {
-        assertEquals("",logicWebProgram.mainMethod(""));
+        assertEquals("60",logicWebProgram.mainMethod("dacos(0.5)"));
     }
 
 
