@@ -19,18 +19,25 @@
 
         <form id="form6" name="form6" method="GET" action="mypage.jsp">
 
-            <input style="width : 420pt" value="<%=calculator.nullExpression(request.getParameter("expression"))%>"
-                   name="expression" type="text" id="expression" placeholder="put expression"
-                   autofocus>
+            <input style="width : 320pt" value="<%=calculator.nullExpression(request.getParameter("expression"))%>"
+                   name="expression" type="text" id="expression" placeholder="put expression" autofocus>
 
             <input type="button" name="button" id="button" value="BackSpace" onClick="backSpace()">
             <input type="button" name="button13" id="button13" value="Clear" onClick="ccclear()">
 
-            <input style="width : 420pt " type="text" name="textfield" id="textfield"
-                   value="<%=calculator.mainMethod(request.getParameter("expression"))%>" placeholder="result">
+            <input type="radio" name="radio1" value="r" checked="checked"> Rad
+
+            <input style="width : 320pt" type="text" name="textfield" id="textfield"
+                   value="<%=calculator.mainMethod(request.getParameter("radio1") +request.getParameter("expression"))%>" placeholder="result">
 
             <input style="width:136pt" name="button12" type="submit" id="button12" value="=">
+
+            <input type="radio" name="radio1" value="d"> Deg
+
         </form>
+
+
+
 
 
     </fieldset>

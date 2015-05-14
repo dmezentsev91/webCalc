@@ -25,8 +25,9 @@ public class TestLogicWebProgram {
     }
     @Test
     public void testMain3() throws Exception {
-        assertEquals("errr",logicWebProgram.mainMethod("0.5!"));
+        assertEquals("",logicWebProgram.mainMethod(""));
     }
+
 
 
 

@@ -35,29 +35,42 @@ public class LogicWebProgram {
     Stack<Double> stackD = new Stack<Double>();
 
     ArrayList<String> firstListFunct;
-
+    boolean rad;
 
     // public static HashMap<String, Integer> getPriorityFunction() {
 //        return priorityFunction;
 //    }
 
     public String mainMethod(String arg) throws Exception {
+        if (arg.equals("nullnull")) return "";
         String result;
+        String temp;
         double resultD;
         try {
-            firstListFunct = divFunctAndNumb(liteCorrecting(arg));
+            temp = liteCorrecting(arg);
+            if (temp.length() == 1) return "";
 
-        methodTransform(firstListFunct);
+            if (temp.indexOf('d') == 0) {
+                rad = false;
+                temp = temp.substring(1);
+            } else if (temp.indexOf('r') == 0) {
+                temp = temp.substring(1);
+                rad = true;
+            } else
+                rad = true;
 
-        resultD = CalculateResult();
-        if ((resultD - (int) resultD) == 0)
-            result = Integer.toString((int) resultD);
-        else
-            result = Double.toString(round(10, resultD));
-        return result;
+            firstListFunct = divFunctAndNumb(temp);
+            methodTransform(firstListFunct);
+            resultD = CalculateResult();
+
+            if ((resultD - (int) resultD) == 0)
+                result = Integer.toString((int) resultD);
+            else
+                result = Double.toString(round(10, resultD));
+            return result;
         } catch (Exception e) {
             e.printStackTrace();
-            return "errr";
+            return "error";
         }
 
     }
@@ -136,7 +149,8 @@ public class LogicWebProgram {
             if ((chars[i] >= 48 && chars[i] <= 57) || chars[i] == '.') {
                 buff += Character.toString(chars[i]);
                 continue;
-            }if(buff.indexOf('.') != buff.lastIndexOf('.')) throw new Exception();
+            }
+            if (buff.indexOf('.') != buff.lastIndexOf('.')) throw new Exception();
             else return buff; //doit case with two point and more
         }
         return buff;
@@ -221,13 +235,13 @@ public class LogicWebProgram {
     }
 
     private void unaryFunct(String str) throws Exception {
-        if (str.equals("sin(")) stackD.push(CalculationExpression.sin(stackD.pop()));
-        else if (str.equals("cos(")) stackD.push(CalculationExpression.cos(stackD.pop()));
-        else if (str.equals("tan(")) stackD.push(CalculationExpression.tan(stackD.pop()));
-        else if (str.equals("ctan(")) stackD.push(CalculationExpression.ctan(stackD.pop()));
+        if (str.equals("sin(")) stackD.push(CalculationExpression.sin(rad, stackD.pop()));
+        else if (str.equals("cos(")) stackD.push(CalculationExpression.cos(rad, stackD.pop()));
+        else if (str.equals("tan(")) stackD.push(CalculationExpression.tan(rad, stackD.pop()));
+        else if (str.equals("ctan(")) stackD.push(CalculationExpression.ctan(rad, stackD.pop()));
         else if (str.equals("sqrt(")) stackD.push(CalculationExpression.sqrt(stackD.pop()));
-        else if (str.equals("asin(")) stackD.push(CalculationExpression.aSin(stackD.pop()));
-        else if (str.equals("acos(")) stackD.push(CalculationExpression.aCos(stackD.pop()));
+        else if (str.equals("asin(")) stackD.push(CalculationExpression.aSin(rad, stackD.pop()));
+        else if (str.equals("acos(")) stackD.push(CalculationExpression.aCos(rad, stackD.pop()));
         else if (str.equals("ln(")) stackD.push(CalculationExpression.ln(stackD.pop()));
         else if (str.equals("!")) stackD.push(CalculationExpression.factor(stackD.pop()));
     }
