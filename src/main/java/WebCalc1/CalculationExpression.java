@@ -15,18 +15,30 @@ public class CalculationExpression {
         return Math.cos(a);
         else return Math.cos(a*Math.PI/180);
     }
-    public static  double tan(boolean rad, double a) {
+    public static  double tan(boolean rad, double a) throws Exception {
         if (rad == true) {
-
+            double temp = a % Math.PI;
+            if ((int)(temp*10) == (int)(Math.PI*10/2) ) throw new Exception();
             return Math.tan(a);
         }
-        else return  Math.tan(a*Math.PI/180);
+        else{
+            double temp = a % 180;
+            if (temp == 90 ) throw new Exception();
+            return  Math.tan(a*Math.PI/180);
+        }
     }
-    public static double ctan(boolean rad, double a) {
+    public static double ctan(boolean rad, double a) throws Exception {
 
-        if (rad == true)
-            return 1/Math.tan(a);
-        else return  1/Math.tan(a*Math.PI/180);
+        if (rad == true) {
+            double temp = a % Math.PI;
+            if ((int)(temp*10) ==  0 || (int)(temp*10) == (int)(Math.PI*10) ) throw new Exception();
+            return 1 / Math.tan(a);
+        }
+        else{
+            double temp = a % 180;
+            if (temp == 0  ) throw new Exception();
+            return  1/Math.tan(a*Math.PI/180);
+        }
     }
     public static double sqrt(double a) {
         return Math.sqrt(a);

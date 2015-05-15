@@ -30,11 +30,11 @@ public class TestLogicWebProgram {
     }
     @Test
     public void testMain5() throws Exception {
-        assertEquals("error",logicWebProgram.mainMethod("d tan(90)"));
+        assertEquals("error",logicWebProgram.mainMethod("d tan(90 + 360*15)"));
     }
     @Test
     public void testMain6() throws Exception {
-        assertEquals("error",logicWebProgram.mainMethod("ctan(pi)"));
+        assertEquals("error",logicWebProgram.mainMethod("ctan(15 * pi)"));
     }
 
 
