@@ -5,9 +5,6 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 public class TestLogicWebProgram {
-    String strTest1 = "2^3!";
-    String strTest2 = "0!";
-
 
     LogicWebProgram logicWebProgram;
     @Before
@@ -17,16 +14,18 @@ public class TestLogicWebProgram {
 
     @Test
     public void testMain() throws Exception {
-        assertEquals("64",logicWebProgram.mainMethod(strTest1));
+        assertEquals("30",logicWebProgram.mainMethod("d asin(1/2)"));
     }
     @Test
     public void testMain2() throws Exception {
-        assertEquals("0",logicWebProgram.mainMethod(strTest2));
+        assertEquals("0.5",logicWebProgram.mainMethod("r cos(acos(1/2))"));
     }
     @Test
     public void testMain3() throws Exception {
-        assertEquals("60",logicWebProgram.mainMethod("dacos(0.5)"));
+        assertEquals("37",logicWebProgram.mainMethod("(13^2 + 2*13 -(11*13 - 2)/(3*13+1))/(13 + 1 - (2*13^2 + 13 +2)/(3*13 + 1))"));
     }
+
+
 
 
 

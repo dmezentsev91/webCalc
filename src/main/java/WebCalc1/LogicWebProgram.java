@@ -49,37 +49,24 @@ public class LogicWebProgram {
         try {
             temp = liteCorrecting(arg);
             if (temp.length() == 1) return "";
-
-            if (temp.indexOf('d') == 0) {
-                rad = false;
-                temp = temp.substring(1);
-            } else if (temp.indexOf('r') == 0) {
-                temp = temp.substring(1);
-                rad = true;
-            } else
-                rad = true;
+            temp = degOrRad(temp);
 
             firstListFunct = separationFunctAndNumb(temp);
             methodTransform(firstListFunct);
-            resultD = CalculateResult();
+            resultD = round(10, CalculateResult());
 
             if ((resultD - (int) resultD) == 0)
                 result = Integer.toString((int) resultD);
             else
-                result = Double.toString(round(10, resultD));
-            return result;
+                result = Double.toString(resultD);
+
+            return additionalRounding(result);
         } catch (Exception e) {
             e.printStackTrace();
             return "error";
         }
 
     }
-
-    private double round(int n, double number) {
-        double newDouble = new BigDecimal(number).setScale(n, RoundingMode.UP).doubleValue();
-        return newDouble;
-    }
-
     public String nullExpression(String arg) {
         try {
             if (arg.equals(null)) return "";
@@ -87,6 +74,31 @@ public class LogicWebProgram {
         } catch (Exception e) {
             return "";
         }
+    }
+
+    private String additionalRounding(String a){
+        try {
+            if (a.substring(a.length() - 10).equals("0000000001"))
+                return a.substring(0, a.length() - 11);
+        } catch (IndexOutOfBoundsException e){ }
+         return a;
+    }
+
+    private String degOrRad(String temp) {
+        if (temp.indexOf('d') == 0) {
+            rad = false;
+            temp = temp.substring(1);
+        } else if (temp.indexOf('r') == 0) {
+            temp = temp.substring(1);
+            rad = true;
+        } else
+            rad = true;
+        return temp;
+    }
+
+    private double round(int n, double number) {
+        double newDouble = new BigDecimal(number).setScale(n, RoundingMode.UP).doubleValue();
+        return newDouble;
     }
 
     private String liteCorrecting(String arg) {
@@ -223,10 +235,10 @@ public class LogicWebProgram {
     private void doFunction(String str) throws Exception {
         int priorityFunct = priorityFunction.get(str);
         if (priorityFunct == 0 || str.equals("!")) unaryFunct(str);
-        else bynaryFunct(str);
-    } // call metod bynaryFunct or unaryFunct
+        else binaryFunct(str);
+    } // call method binaryFunct or unaryFunct
 
-    private void bynaryFunct(String str) {
+    private void binaryFunct(String str) {
         double upperElem = stackD.pop();
         double lowerElem = stackD.pop();
         if (str.equals("+")) stackD.push(CalculationExpression.plus(lowerElem, upperElem));
