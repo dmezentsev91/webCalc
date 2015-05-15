@@ -16,8 +16,10 @@ public class CalculationExpression {
         else return Math.cos(a*Math.PI/180);
     }
     public static  double tan(boolean rad, double a) {
-        if (rad == true)
-        return Math.tan(a);
+        if (rad == true) {
+
+            return Math.tan(a);
+        }
         else return  Math.tan(a*Math.PI/180);
     }
     public static double ctan(boolean rad, double a) {

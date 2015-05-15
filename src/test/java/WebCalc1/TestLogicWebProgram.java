@@ -24,6 +24,21 @@ public class TestLogicWebProgram {
     public void testMain3() throws Exception {
         assertEquals("37",logicWebProgram.mainMethod("(13^2 + 2*13 -(11*13 - 2)/(3*13+1))/(13 + 1 - (2*13^2 + 13 +2)/(3*13 + 1))"));
     }
+    @Test
+    public void testMain4() throws Exception {
+        assertEquals("4",logicWebProgram.mainMethod("d sqrt(2*(1/sin(30)^((3!^2)/12)))"));
+    }
+    @Test
+    public void testMain5() throws Exception {
+        assertEquals("error",logicWebProgram.mainMethod("d tan(90)"));
+    }
+    @Test
+    public void testMain6() throws Exception {
+        assertEquals("error",logicWebProgram.mainMethod("ctan(pi)"));
+    }
+
+
+
 
 
 
